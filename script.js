@@ -8,13 +8,18 @@
   // Check for saved theme preference or default to 'light'
   const currentTheme = localStorage.getItem('theme') || 'light';
   htmlElement.setAttribute('data-theme', currentTheme);
+  console.log('Initial theme:', currentTheme);
   
   themeToggle.addEventListener('click', function() {
     const currentTheme = htmlElement.getAttribute('data-theme');
     const newTheme = currentTheme === 'light' ? 'dark' : 'light';
     
+    console.log('Theme toggle clicked! Switching from', currentTheme, 'to', newTheme);
+    
     htmlElement.setAttribute('data-theme', newTheme);
     localStorage.setItem('theme', newTheme);
+    
+    console.log('Theme changed to:', htmlElement.getAttribute('data-theme'));
   });
 })();
 
